@@ -1,0 +1,340 @@
+Last login: Thu Aug 29 09:31:52 on ttys000
+(base) hiyakashyap@Hiyas-MacBook-Pro ~ % mongosh --version
+2.3.0
+(base) hiyakashyap@Hiyas-MacBook-Pro ~ % mongosh
+Current Mongosh Log ID:	66cff395ba95c3cbdd335377
+Connecting to:		mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.0
+Using MongoDB:		7.0.14
+Using Mongosh:		2.3.0
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2024-08-28T11:21:44.895+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+   2024-08-28T11:21:44.895+05:30: You are running this process as the root user, which is not recommended
+   2024-08-28T11:21:44.895+05:30: This server is bound to localhost. Remote systems will be unable to connect to this server. Start the server with --bind_ip <address> to specify which IP addresses it should serve responses from, or with --bind_ip_all to bind to all interfaces. If this behavior is desired, start the server with --bind_ip 127.0.0.1 to disable this warning
+   2024-08-28T11:21:44.895+05:30: Soft rlimits for open file descriptors too low
+------
+
+test> show dbs
+admin    40.00 KiB
+config  108.00 KiB
+local    40.00 KiB
+test> db
+test
+test> use chitkara
+switched to db chitkara
+chitkara> db.createCollection("users")
+{ ok: 1 }
+chitkara> .. },
+
+chitkara> db.user.insertMany([
+...   {
+...     name: "Alex",
+...     age: 24,
+...     marks: 50,
+...     subject: "Physical Edu"
+...   },
+...   {
+...     name: "Josh",
+...     age: 25,
+...     marks: 70,
+...     subject: "Maths"
+...   },
+...   {
+...     name: "Christian",
+...     age: 28,
+...     marks: 60,
+...     subject: "Economics"
+...   },
+...   {
+...     name: "Rhys",
+...     age: 27,
+...     marks: 55,
+...     subject: "Science"
+...   },
+...   {
+...     name: "Jameson",
+...     age: 20,
+...     marks: 67,
+...     subject: "History"
+...   }
+... ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('66cff551ba95c3cbdd335378'),
+    '1': ObjectId('66cff551ba95c3cbdd335379'),
+    '2': ObjectId('66cff551ba95c3cbdd33537a'),
+    '3': ObjectId('66cff551ba95c3cbdd33537b'),
+    '4': ObjectId('66cff551ba95c3cbdd33537c')
+  }
+}
+chitkara> db.user.insertMany([
+...   {
+...     name: "Alex",
+...     age: 24,
+...     marks: 50,
+...     subject: "Physical Edu"
+...   },
+...   {
+...     name: "Josh",
+...     age: 25,
+...     marks: 70,
+...     subject: "Maths"
+...   },
+...   {
+...     name: "Christian",
+...     age: 28,
+...     marks: 60,
+...     subject: "Economics"
+...   },
+...   {
+...     name: "Rhys",
+...     age: 27,
+...     marks: 55,
+...     subject: "Science"
+...   },
+...   {
+...     name: "Jameson",
+...     age: 20,
+...     marks: 67,
+...     subject: "History"
+...   }
+... ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('66cff5a5ba95c3cbdd33537d'),
+    '1': ObjectId('66cff5a5ba95c3cbdd33537e'),
+    '2': ObjectId('66cff5a5ba95c3cbdd33537f'),
+    '3': ObjectId('66cff5a5ba95c3cbdd335380'),
+    '4': ObjectId('66cff5a5ba95c3cbdd335381')
+  }
+}
+chitkara> db.faculty.insertMany([
+...   {
+...     name: "Dr. Emily Carter",
+...     age: 45,
+...     rating: 4.8
+...   },
+...   {
+...     name: "Prof. Michael Stone",
+...     age: 52,
+...     rating: 4.5
+...   },
+...   {
+...     name: "Dr. Olivia Benson",
+...     age: 39,
+...     rating: 4.7
+...   },
+...   {
+...     name: "Prof. William Turner",
+...     age: 60,
+...     rating: 4.9
+...   },
+...   {
+...     name: "Dr. Sophia Reynolds",
+...     age: 34,
+...     rating: 4.6
+...   }
+... ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('66cff60eba95c3cbdd335382'),
+    '1': ObjectId('66cff60eba95c3cbdd335383'),
+    '2': ObjectId('66cff60eba95c3cbdd335384'),
+    '3': ObjectId('66cff60eba95c3cbdd335385'),
+    '4': ObjectId('66cff60eba95c3cbdd335386')
+  }
+}
+chitkara> db.students.insertMany([
+...   {
+...     name: "Alex Johnson",
+...     class: "10th Grade",
+...     subject: "Mathematics",
+...     marks: 85
+...   },
+...   {
+...     name: "Emily Carter",
+...     class: "9th Grade",
+...     subject: "Science",
+...     marks: 90
+...   },
+...   {
+...     name: "Michael Brown",
+...     class: "11th Grade",
+...     subject: "History",
+...     marks: 75
+...   },
+...   {
+...     name: "Sophia Williams",
+...     class: "10th Grade",
+...     subject: "English",
+...     marks: 88
+...   },
+...   {
+...     name: "David Smith",
+...     class: "12th Grade",
+...     subject: "Physics",
+...     marks: 92
+...   },
+...   {
+...     name: "Olivia Davis",
+...     class: "11th Grade",
+...     subject: "Chemistry",
+...     marks: 89
+...   },
+...   {
+...     name: "Jameson Reed",
+...     class: "12th Grade",
+...     subject: "Biology",
+...     marks: 95
+...   }
+... ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('66cff6f7ba95c3cbdd335387'),
+    '1': ObjectId('66cff6f7ba95c3cbdd335388'),
+    '2': ObjectId('66cff6f7ba95c3cbdd335389'),
+    '3': ObjectId('66cff6f7ba95c3cbdd33538a'),
+    '4': ObjectId('66cff6f7ba95c3cbdd33538b'),
+    '5': ObjectId('66cff6f7ba95c3cbdd33538c'),
+    '6': ObjectId('66cff6f7ba95c3cbdd33538d')
+  }
+}
+chitkara> show collections
+faculty
+students
+user
+chitkara> db.user.insertOne({data:ISODate()})
+{
+  acknowledged: true,
+  insertedId: ObjectId('66cff884ba95c3cbdd33538e')
+}
+chitkara> db.user.find()
+[
+  {
+    _id: ObjectId('66cff5a5ba95c3cbdd33537d'),
+    name: 'Alex',
+    age: 24,
+    marks: 50,
+    subject: 'Physical Edu'
+  },
+  {
+    _id: ObjectId('66cff5a5ba95c3cbdd33537e'),
+    name: 'Josh',
+    age: 25,
+    marks: 70,
+    subject: 'Maths'
+  },
+  {
+    _id: ObjectId('66cff5a5ba95c3cbdd33537f'),
+    name: 'Christian',
+    age: 28,
+    marks: 60,
+    subject: 'Economics'
+  },
+  {
+    _id: ObjectId('66cff5a5ba95c3cbdd335380'),
+    name: 'Rhys',
+    age: 27,
+    marks: 55,
+    subject: 'Science'
+  },
+  {
+    _id: ObjectId('66cff5a5ba95c3cbdd335381'),
+    name: 'Jameson',
+    age: 20,
+    marks: 67,
+    subject: 'History'
+  },
+  {
+    _id: ObjectId('66cff884ba95c3cbdd33538e'),
+    data: ISODate('2024-08-29T04:26:44.938Z')
+  }
+]
+chitkara> db.user.find().pretty
+[Function: pretty] {
+  returnType: 'this',
+  serverVersions: [ '0.0.0', '999.999.999' ],
+  apiVersions: [ 0, Infinity ],
+  topologies: [ 'ReplSet', 'Sharded', 'LoadBalanced', 'Standalone' ],
+  returnsPromise: false,
+  deprecated: false,
+  platforms: [ 'Compass', 'Browser', 'CLI' ],
+  isDirectShellCommand: false,
+  acceptsRawInput: false,
+  shellCommandCompleter: undefined,
+  help: [Function (anonymous)] Help
+}
+chitkara> db.user.find().pretty()
+[
+  {
+    _id: ObjectId('66cff5a5ba95c3cbdd33537d'),
+    name: 'Alex',
+    age: 24,
+    marks: 50,
+    subject: 'Physical Edu'
+  },
+  {
+    _id: ObjectId('66cff5a5ba95c3cbdd33537e'),
+    name: 'Josh',
+    age: 25,
+    marks: 70,
+    subject: 'Maths'
+  },
+  {
+    _id: ObjectId('66cff5a5ba95c3cbdd33537f'),
+    name: 'Christian',
+    age: 28,
+    marks: 60,
+    subject: 'Economics'
+  },
+  {
+    _id: ObjectId('66cff5a5ba95c3cbdd335380'),
+    name: 'Rhys',
+    age: 27,
+    marks: 55,
+    subject: 'Science'
+  },
+  {
+    _id: ObjectId('66cff5a5ba95c3cbdd335381'),
+    name: 'Jameson',
+    age: 20,
+    marks: 67,
+    subject: 'History'
+  },
+  {
+    _id: ObjectId('66cff884ba95c3cbdd33538e'),
+    data: ISODate('2024-08-29T04:26:44.938Z')
+  }
+]
+chitkara> db.user.findOne(ObjectId('66cff5a5ba95c3cbdd335381'))
+{
+  _id: ObjectId('66cff5a5ba95c3cbdd335381'),
+  name: 'Jameson',
+  age: 20,
+  marks: 67,
+  subject: 'History'
+}
+chitkara> db.user.findOne({name:"Rhys})
+Uncaught:
+SyntaxError: Unterminated string constant. (1:22)
+
+> 1 | db.user.findOne({name:"Rhys})
+    |                       ^
+  2 |
+
+chitkara> db.user.findOne({name:"Rhys"})
+{
+  _id: ObjectId('66cff5a5ba95c3cbdd335380'),
+  name: 'Rhys',
+  age: 27,
+  marks: 55,
+  subject: 'Science'
+}
+chitkara> 
