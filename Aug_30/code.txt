@@ -1,0 +1,661 @@
+
+chitkara> show collections
+faculty
+students
+user
+//TASK 1
+
+chitkara> db.user.countDocuments()
+6
+chitkara> db.user.estimatedDocumentCount()
+6
+chitkara> db.students.find()
+[
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd335387'),
+    name: 'Alex Johnson',
+    class: '10th Grade',
+    subject: 'Mathematics',
+    marks: 85
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd335388'),
+    name: 'Emily Carter',
+    class: '9th Grade',
+    subject: 'Science',
+    marks: 90
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd335389'),
+    name: 'Michael Brown',
+    class: '11th Grade',
+    subject: 'History',
+    marks: 75
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538a'),
+    name: 'Sophia Williams',
+    class: '10th Grade',
+    subject: 'English',
+    marks: 88
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538b'),
+    name: 'David Smith',
+    class: '12th Grade',
+    subject: 'Physics',
+    marks: 92
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538c'),
+    name: 'Olivia Davis',
+    class: '11th Grade',
+    subject: 'Chemistry',
+    marks: 89
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538d'),
+    name: 'Jameson Reed',
+    class: '12th Grade',
+    subject: 'Biology',
+    marks: 95
+  }
+]
+
+// Update the subject to "Data Science" and address to "Chitkara University"
+
+
+chitkara> db.students.updateMany(
+...   {}, 
+...   { $set: { subject: "Data Science", address: "Chitkara University" } }
+... )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 7,
+  modifiedCount: 7,
+  upsertedCount: 0
+}
+chitkara> db.students.find()
+[
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd335387'),
+    name: 'Alex Johnson',
+    class: '10th Grade',
+    subject: 'Data Science',
+    marks: 85,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd335388'),
+    name: 'Emily Carter',
+    class: '9th Grade',
+    subject: 'Data Science',
+    marks: 90,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd335389'),
+    name: 'Michael Brown',
+    class: '11th Grade',
+    subject: 'Data Science',
+    marks: 75,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538a'),
+    name: 'Sophia Williams',
+    class: '10th Grade',
+    subject: 'Data Science',
+    marks: 88,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538b'),
+    name: 'David Smith',
+    class: '12th Grade',
+    subject: 'Data Science',
+    marks: 92,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538c'),
+    name: 'Olivia Davis',
+    class: '11th Grade',
+    subject: 'Data Science',
+    marks: 89,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538d'),
+    name: 'Jameson Reed',
+    class: '12th Grade',
+    subject: 'Data Science',
+    marks: 95,
+    address: 'Chitkara University'
+  }
+]
+
+// Update the subject to "Data Science" and address to "Chitkara University"
+
+chitkara> db.students.updateOne(
+...   { name: "Alex Johnson" },
+...   { $set: { grade: "A" } }
+... )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+chitkara> db.students.updateOne(
+...   { name: "Emily Carter" },
+...   { $set: { grade: "B+" } }
+... )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+chitkara> db.students.updateOne(
+...   { name: "Michael Brown" },
+...   { $set: { grade: "B" } }
+... )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+chitkara> db.students.updateOne(
+...   { name: "Sophia Williams" },
+...   { $set: { grade: "A-" } }
+... )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+chitkara> db.students.find()
+[
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd335387'),
+    name: 'Alex Johnson',
+    class: '10th Grade',
+    subject: 'Data Science',
+    marks: 85,
+    address: 'Chitkara University',
+    grade: 'A'
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd335388'),
+    name: 'Emily Carter',
+    class: '9th Grade',
+    subject: 'Data Science',
+    marks: 90,
+    address: 'Chitkara University',
+    grade: 'B+'
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd335389'),
+    name: 'Michael Brown',
+    class: '11th Grade',
+    subject: 'Data Science',
+    marks: 75,
+    address: 'Chitkara University',
+    grade: 'B'
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538a'),
+    name: 'Sophia Williams',
+    class: '10th Grade',
+    subject: 'Data Science',
+    marks: 88,
+    address: 'Chitkara University',
+    grade: 'A-'
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538b'),
+    name: 'David Smith',
+    class: '12th Grade',
+    subject: 'Data Science',
+    marks: 92,
+    address: 'Chitkara University',
+    grade: 'A+'
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538c'),
+    name: 'Olivia Davis',
+    class: '11th Grade',
+    subject: 'Data Science',
+    marks: 89,
+    address: 'Chitkara University',
+    grade: 'B+'
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538d'),
+    name: 'Jameson Reed',
+    class: '12th Grade',
+    subject: 'Data Science',
+    marks: 95,
+    address: 'Chitkara University',
+    grade: 'A'
+  }
+]
+
+// Print for Grdae A+ only
+
+chitkara> db.students.find({ grade: "A+" })
+[
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538b'),
+    name: 'David Smith',
+    class: '12th Grade',
+    subject: 'Data Science',
+    marks: 92,
+    address: 'Chitkara University',
+    grade: 'A+',
+    age: 23
+  }
+]
+chitkara> db.students.find( { marks: 90 } ).pretty()
+[
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd335388'),
+    name: 'Emily Carter',
+    class: '9th Grade',
+    subject: 'Data Science',
+    marks: 90,
+    address: 'Chitkara University',
+    grade: 'B+',
+    age: ' 20'
+  }
+]
+
+// Marks >=80 and age == 18
+
+chitkara> db.students.find({ marks: { $gte: 80 }, age: { $gte: 18 } }).pretty()
+[
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd335388'),
+    name: 'Emily Carter',
+    class: '9th Grade',
+    subject: 'Data Science',
+    marks: 90,
+    address: 'Chitkara University',
+    grade: 'B+',
+    age: 19
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538a'),
+    name: 'Sophia Williams',
+    class: '10th Grade',
+    subject: 'Data Science',
+    marks: 88,
+    address: 'Chitkara University',
+    grade: 'A-',
+    age: 22
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538b'),
+    name: 'David Smith',
+    class: '12th Grade',
+    subject: 'Data Science',
+    marks: 92,
+    address: 'Chitkara University',
+    grade: 'A+',
+    age: 23
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538d'),
+    name: 'Jameson Reed',
+    class: '12th Grade',
+    subject: 'Data Science',
+    marks: 95,
+    address: 'Chitkara University',
+    grade: 'A',
+    age: 22
+  }
+]
+chitkara> db.students.find(
+...   {
+...     $or: [
+...       { age: 18 },
+...       { marks: { $gte: 80 } }
+...     ]
+...   }
+... ).pretty()
+[
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd335387'),
+    name: 'Alex Johnson',
+    class: '10th Grade',
+    subject: 'Data Science',
+    marks: 85,
+    address: 'Chitkara University',
+    grade: 'A',
+    'age: ': 18
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd335388'),
+    name: 'Emily Carter',
+    class: '9th Grade',
+    subject: 'Data Science',
+    marks: 90,
+    address: 'Chitkara University',
+    grade: 'B+',
+    age: 19
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538a'),
+    name: 'Sophia Williams',
+    class: '10th Grade',
+    subject: 'Data Science',
+    marks: 88,
+    address: 'Chitkara University',
+    grade: 'A-',
+    age: 22
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538b'),
+    name: 'David Smith',
+    class: '12th Grade',
+    subject: 'Data Science',
+    marks: 92,
+    address: 'Chitkara University',
+    grade: 'A+',
+    age: 23
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538c'),
+    name: 'Olivia Davis',
+    class: '11th Grade',
+    subject: 'Data Science',
+    marks: 89,
+    address: 'Chitkara University',
+    grade: 'B+',
+    age: 17
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538d'),
+    name: 'Jameson Reed',
+    class: '12th Grade',
+    subject: 'Data Science',
+    marks: 95,
+    address: 'Chitkara University',
+    grade: 'A',
+    age: 22
+  }
+]
+chitkara> db.students.find({ marks: { $gte: 80 }, age: { $gte: 18 } }).pretty()
+[
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd335388'),
+    name: 'Emily Carter',
+    class: '9th Grade',
+    subject: 'Data Science',
+    marks: 90,
+    address: 'Chitkara University',
+    grade: 'B+',
+    age: 19
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538a'),
+    name: 'Sophia Williams',
+    class: '10th Grade',
+    subject: 'Data Science',
+    marks: 88,
+    address: 'Chitkara University',
+    grade: 'A-',
+    age: 22
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538b'),
+    name: 'David Smith',
+    class: '12th Grade',
+    subject: 'Data Science',
+    marks: 92,
+    address: 'Chitkara University',
+    grade: 'A+',
+    age: 23
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538d'),
+    name: 'Jameson Reed',
+    class: '12th Grade',
+    subject: 'Data Science',
+    marks: 95,
+    address: 'Chitkara University',
+    grade: 'A',
+    age: 22
+  }
+]
+
+// Marks >=80 or age == 18
+
+chitkara> db.students.find(
+...   {
+...     $or: [
+...       { age: 18 },
+...       { marks: { $gte: 80 } }
+...     ]
+...   }
+... ).pretty()
+[
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd335387'),
+    name: 'Alex Johnson',
+    class: '10th Grade',
+    subject: 'Data Science',
+    marks: 85,
+    address: 'Chitkara University',
+    grade: 'A',
+    'age: ': 18
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd335388'),
+    name: 'Emily Carter',
+    class: '9th Grade',
+    subject: 'Data Science',
+    marks: 90,
+    address: 'Chitkara University',
+    grade: 'B+',
+    age: 19
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538a'),
+    name: 'Sophia Williams',
+    class: '10th Grade',
+    subject: 'Data Science',
+    marks: 88,
+    address: 'Chitkara University',
+    grade: 'A-',
+    age: 22
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538b'),
+    name: 'David Smith',
+    class: '12th Grade',
+    subject: 'Data Science',
+    marks: 92,
+    address: 'Chitkara University',
+    grade: 'A+',
+    age: 23
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538c'),
+    name: 'Olivia Davis',
+    class: '11th Grade',
+    subject: 'Data Science',
+    marks: 89,
+    address: 'Chitkara University',
+    grade: 'B+',
+    age: 17
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538d'),
+    name: 'Jameson Reed',
+    class: '12th Grade',
+    subject: 'Data Science',
+    marks: 95,
+    address: 'Chitkara University',
+    grade: 'A',
+    age: 22
+  }
+]
+
+//  Age not = 22
+
+
+chitkara> db.students.find({age:{$ne:22}}).pretty
+[Function: pretty] {
+  returnType: 'this',
+  serverVersions: [ '0.0.0', '999.999.999' ],
+  apiVersions: [ 0, Infinity ],
+  topologies: [ 'ReplSet', 'Sharded', 'LoadBalanced', 'Standalone' ],
+  returnsPromise: false,
+  deprecated: false,
+  platforms: [ 'Compass', 'Browser', 'CLI' ],
+  isDirectShellCommand: false,
+  acceptsRawInput: false,
+  shellCommandCompleter: undefined,
+  help: [Function (anonymous)] Help
+}
+chitkara> db.students.find({ age: { $ne: 22 } }).pretty()
+[
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd335387'),
+    name: 'Alex Johnson',
+    class: '10th Grade',
+    subject: 'Data Science',
+    marks: 85,
+    address: 'Chitkara University',
+    grade: 'A',
+    'age: ': 18
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd335388'),
+    name: 'Emily Carter',
+    class: '9th Grade',
+    subject: 'Data Science',
+    marks: 90,
+    address: 'Chitkara University',
+    grade: 'B+',
+    age: 19
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd335389'),
+    name: 'Michael Brown',
+    class: '11th Grade',
+    subject: 'Data Science',
+    marks: 75,
+    address: 'Chitkara University',
+    grade: 'B',
+    age: 21
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538b'),
+    name: 'David Smith',
+    class: '12th Grade',
+    subject: 'Data Science',
+    marks: 92,
+    address: 'Chitkara University',
+    grade: 'A+',
+    age: 23
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538c'),
+    name: 'Olivia Davis',
+    class: '11th Grade',
+    subject: 'Data Science',
+    marks: 89,
+    address: 'Chitkara University',
+    grade: 'B+',
+    age: 17
+  }
+]
+
+//Nor command
+
+chitkara> db.students.find( { $nor: [ { age: 18 }, { marks: { $gte: 80 } }] } ).pretty()
+[
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd335389'),
+    name: 'Michael Brown',
+    class: '11th Grade',
+    subject: 'Data Science',
+    marks: 75,
+    address: 'Chitkara University',
+    grade: 'B',
+    age: 21
+  }
+]
+
+
+// exist operator
+chitkara> db.students.find({marks:{$exists: true,$nin: [90,85]}})
+[
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd335389'),
+    name: 'Michael Brown',
+    class: '11th Grade',
+    subject: 'Data Science',
+    marks: 75,
+    address: 'Chitkara University',
+    grade: 'B',
+    age: 21
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538a'),
+    name: 'Sophia Williams',
+    class: '10th Grade',
+    subject: 'Data Science',
+    marks: 88,
+    address: 'Chitkara University',
+    grade: 'A-',
+    age: 22
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538b'),
+    name: 'David Smith',
+    class: '12th Grade',
+    subject: 'Data Science',
+    marks: 92,
+    address: 'Chitkara University',
+    grade: 'A+',
+    age: 23
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538c'),
+    name: 'Olivia Davis',
+    class: '11th Grade',
+    subject: 'Data Science',
+    marks: 89,
+    address: 'Chitkara University',
+    grade: 'B+',
+    age: 17
+  },
+  {
+    _id: ObjectId('66cff6f7ba95c3cbdd33538d'),
+    name: 'Jameson Reed',
+    class: '12th Grade',
+    subject: 'Data Science',
+    marks: 95,
+    address: 'Chitkara University',
+    grade: 'A',
+    age: 22
+  }
+]
+chitkara> 
+
+
