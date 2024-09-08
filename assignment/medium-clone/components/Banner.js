@@ -14,7 +14,7 @@ const Banner = () => {
   return (
     <div className={styles.banner}>
       <div className='space-y-5 px-10 flex-[3]'>
-        <h1 className={styles.heading}>Human stories & ideas</h1>
+        <h1 className={styles.heading}>Human stories& ideas</h1>
         <h3 className={styles.subheading}>A place to read, write, and deepen your understanding</h3>
         <button className={styles.accentedButton}>Start Reading</button>
       </div>
