@@ -321,13 +321,7 @@ chitkara> db.user.findOne(ObjectId('66cff5a5ba95c3cbdd335381'))
   marks: 67,
   subject: 'History'
 }
-chitkara> db.user.findOne({name:"Rhys})
-Uncaught:
-SyntaxError: Unterminated string constant. (1:22)
 
-> 1 | db.user.findOne({name:"Rhys})
-    |                       ^
-  2 |
 
 chitkara> db.user.findOne({name:"Rhys"})
 {
