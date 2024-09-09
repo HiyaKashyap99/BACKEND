@@ -5,7 +5,7 @@ const styles = {
     banner: 'flex flex-col md:flex-row items-center justify-between p-10 bg-[#D6DF7E]', 
     heading: 'max-w-xl text-[6rem] font-mediumSerifItalic ', 
     subheading: 'text-2xl mt-0', 
-    accentedButton: 'bg-green-700 text-black py-2 px-4 rounded-full cursor-pointer hover:bg-green-700 mt-6',
+    accentedButton: 'bg-green-600 text-black py-2 px-4 rounded-full cursor-pointer hover:bg-green-700 mt-6',
     imageContainer: 'flex justify-end mt-6 md:mt-0', 
     image: 'max-w-full h-auto'
 };
