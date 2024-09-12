@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link'; // Correct Link import from Next.js
+import Link from 'next/link';
 import logo from '../images/logo_med.png';
 import { FiBookmark } from 'react-icons/fi';
 
@@ -22,7 +22,7 @@ const styles = {
 
 const PostCard = () => {
   return (
-    <Link href="/post/123"> {/* Next.js Link */}
+    <Link href="/post/123">
       <div className={styles.wrapper}>
         <div className={styles.postDetails}>
           <div className={styles.authorContainer}>

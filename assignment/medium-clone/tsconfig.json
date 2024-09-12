@@ -1,3 +1,4 @@
+///Users/hiyakashyap/Desktop/BACKEND-1/assignment/medium-clone/tsconfig.json
 {
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext"],
